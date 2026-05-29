@@ -24,6 +24,8 @@ def nested_while_loop():
         print()
 
 
+
+
 # decremental_while_loop()
 # incremental_while_loop()
 nested_while_loop()
