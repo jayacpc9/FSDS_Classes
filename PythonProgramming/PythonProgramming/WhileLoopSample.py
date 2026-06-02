@@ -24,6 +24,31 @@ def nested_while_loop():
         print()
 
 
+def nested_while_loop_2():
+    # lets use while loop using some numbers
+    i = 1
+    while i <= 2:
+        j = 0
+        while j <= 2:
+            print(i * j, end=" ")
+            j += 1
+        print()
+        i += 1
+
+def nested_while_loop_3():
+    # lets use while loop using some numbers
+    i = 1
+    while i <= 4:
+        j = 0
+        while j <= 3:
+            print(i * j, end=" ")
+            j += 1
+        print()
+        i += 1
+
+
 # decremental_while_loop()
 # incremental_while_loop()
-nested_while_loop()
+# nested_while_loop()
+# nested_while_loop_2()
+nested_while_loop_3()
