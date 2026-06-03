@@ -1,0 +1,15 @@
+[theme]
+# Base layout settings
+base="light"
+
+# This changes the main page background color
+backgroundColor="#FFFFFF"
+
+# This changes the sidebar color (and widget backgrounds)
+secondaryBackgroundColor="#F0F2F6"
+
+# This changes the core text color across the layout
+textColor="#262730"
+
+# This changes the interactive color (buttons, sliders, etc.)
+primaryColor="#FF4B4B"
