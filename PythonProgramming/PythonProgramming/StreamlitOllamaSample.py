@@ -19,7 +19,7 @@ if st.button("Generate Response"):
         st.warning("Please enter a prompt.")
     else:
         with st.spinner("Thinking..."):
-            response = client.chat(response = {ChatResponse} ChatResponse(model='deepseek-r1:1.5b', created_at='2026-06-12T05:27:14.884627Z', done=True, done_reason='stop', total_duration...her species, and engaging in various activities.', thinking=None, images=None, tool_name=None, tool_calls=None), logprobs=None)… View
+            response = client.chat(
                 model=MODEL,
                 messages=[
                     {"role": "user", "content": prompt}
