@@ -86,6 +86,11 @@ def list_all_movies_by_genre(genre):
         print("records_hash : ",records_hash[0])
 
 
+
+##############################################
+## To test the working of all the functions ##
+##############################################
+
 init_movie_df()
 update_column_names()
 print_details()
