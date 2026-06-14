@@ -122,3 +122,7 @@ print("-" * 60)
 for movie in movie_list:
     print(f"{movie['Year']:<6} |{movie['Genre']:<12} | ${movie['BudgetMillions']:<5}M | {movie['Film'].strip()}")
 
+all_movies_df = get_all_movies_by_genre(genre)
+print("all movies by gener : ",all_movies_df)
+print("type of all movies df : ",type(all_movies_df))
+print(f"Filter by year : ",all_movies_df[colnames.YEAR].unique().tolist())
