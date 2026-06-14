@@ -1,7 +1,6 @@
 FILM = "Film"
-GENRE = 'Genre'
-CRITIC_RATING = 'CriticRating'
-AUDIENCE_RATING = 'AudienceRating'
-BUDGET_MILLIONS = 'BudgetMillions'
-YEAR = 'Year'
-
+GENRE = "Genre"
+CRITIC_RATING = "CriticRating"
+AUDIENCE_RATING = "AudienceRating"
+BUDGET_MILLIONS = "BudgetMillions"
+YEAR = "Year"
