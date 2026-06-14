@@ -1,4 +1,6 @@
 import streamlit as st
+from pandas.core.indexes.api import default_index
+
 import MovieRatings as movie_ratings
 import ColumnNames as col_names
 
@@ -44,7 +46,6 @@ def button_list(buttons_list):
 st.title("Streamlit  : Movie Ratings  Demo")
 st.write("""This is a sample app to demo using pandas and numpy""")
 # movie_ratings.init_movie_df()
-
 movie_genre = st.sidebar.selectbox("Filter by Genre : ", movie_ratings.get_all_genres())
 print("movie_genre+"".lower() == ", movie_genre.lower())
 selected_genre_text_color = "red"

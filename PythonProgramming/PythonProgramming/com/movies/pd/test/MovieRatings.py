@@ -35,7 +35,9 @@ def get_all_genres():
     # get all the unique Genre from the given csv file.
     # target_genres = movie_rating_df[colnames.GENRE].cat.categories.to_list()
     target_genres = movie_rating_df[colnames.GENRE].unique().tolist()
-    # print(target_genres)
+
+    target_genres.sort()
+    print(target_genres)
     return target_genres
 
 
