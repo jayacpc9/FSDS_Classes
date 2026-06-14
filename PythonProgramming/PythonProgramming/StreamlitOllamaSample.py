@@ -13,7 +13,6 @@ st.set_page_config(
 
 st.title("Sample Text Chat - Ollama App")
 prompt = st.text_area("Enter you prompt : ", height=200)
-# user_input = st.text_area("Enter text here")
 if st.button("Generate Response"):
     if prompt.strip() == MODEL:
         st.warning("Please enter a prompt.")
