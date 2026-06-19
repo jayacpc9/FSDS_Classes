@@ -3,7 +3,7 @@ import TipsDataset as tips
 import matplotlib.pyplot as plt
 
 st.title("Streamlit : Tips Dataset Demo")
-st.write("This is a simple app to visualize the tips dataset using seaborn.")
+# st.write("This is a simple app to visualize the tips dataset using seaborn.")
 
 all_columns = tips.get_df_coloumns()
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -42,15 +42,19 @@ with st.sidebar.form("sns_dataset_form"):
             options=all_columns
         )
 
-    submitted = st.form_submit_button("Generate Graph")
 
+    submitted = st.form_submit_button("Generate Graph")
+log_message =f"**Selected Items:**"
 if submitted:
     st.success(f"Form submitted successfully!")
-    # st.write(f"**Selected Items:** \nx_axis : {x_axis}\n , y_axis : {y_axis}\n , hue_val : {hue_val} ")
     match selected_graph_index:
         case 1:
+            log_message+=f"x = {x_axis} "
             display_plot("Histogram plot ", lambda: tips.hist_plot(ax, x_axis))
         case 2:
+            log_message+=f"x = {x_axis} , y = {y_axis} , hue = {hue_val} "
             display_plot("scatter plot ", lambda: tips.scatter_plot(ax, x_axis, y_axis, hue_val))
         case 3:
+            log_message+=f"x = {x_axis} , y = {y_axis} , hue = {hue_val} "
             display_plot("Box plot ", lambda: tips.box_plot(ax, x_axis, y_axis, hue_val))
+    st.write(log_message)

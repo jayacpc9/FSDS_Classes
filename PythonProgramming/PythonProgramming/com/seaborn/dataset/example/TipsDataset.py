@@ -20,21 +20,16 @@ def get_df_coloumns():
 print(get_df_coloumns())
 
 
-# def scatter_plot(ax):
-#     sns.scatterplot(data=sns_df, x="total_bill", y="tip", hue="time", size="size", palette="deep", ax=ax)
-#     ax.set_title("Scatter plot of total bill vs tip")
+
+def hist_plot(ax,xvals):
+    sns.histplot(data=sns_df, x=xvals, bins=20, kde=True, color='blue', ax=ax)
+    ax.set_title(f"Histogram {xvals}")
 
 
 def scatter_plot(ax, xvals, yvals,hue_vals):
     sns.scatterplot(data=sns_df, x=xvals, y=yvals, hue=hue_vals, size="size", palette="deep", ax=ax)
-    ax.set_title("Scatter plot of total bill vs tip")
-
-
-def hist_plot(ax,xvals):
-    sns.histplot(data=sns_df, x=xvals, bins=20, kde=True, color='blue', ax=ax)
-    ax.set_title("Histogram of Total Bill with KDE")
-
+    ax.set_title(f"Scatter plot of {xvals} vs {yvals} and {hue_vals} ")
 
 def box_plot(ax, xvals, yvals,hue_vals):
     sns.boxplot(data=sns_df,  x=xvals, y=yvals, hue=hue_vals, palette='Set2', ax=ax)
-    ax.set_title("Boxplot of Tips by Day and Smoker Status")
+    ax.set_title(f"Boxplot of {xvals} by {yvals} and {hue_vals} Status")
