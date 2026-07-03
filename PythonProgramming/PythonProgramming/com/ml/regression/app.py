@@ -2,7 +2,9 @@ import streamlit as st
 import pickle
 import numpy as np
 
-folder_name ="/Users/chandra/Desktop/FSDS_GenAI_Training/FSDS_Classes/Python_Workspace/ML/Regression/"
+
+
+folder_name ="/Users/chandra/Pycharm_Workspace/fsds_classes/PythonProgramming/PythonProgramming/com/ml/regression/"
 pickle_fileName ="linear_regression_model.pkl"
 
 file_path =folder_name+pickle_fileName
