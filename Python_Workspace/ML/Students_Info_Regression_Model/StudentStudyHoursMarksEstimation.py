@@ -1,17 +1,20 @@
 import streamlit as st
 import pickle
 import numpy as np
-
+import joblib
 if "is_update_result" not in st.session_state:
      st.session_state.is_update_result = False
 
 folder_name ="/Users/chandra/Desktop/FSDS_GenAI_Training/FSDS_Classes/Python_Workspace/ML/Students_Info_Regression_Model/"
 pickle_fileName ="Students_marks.pkl" 
-pickle_fileName ='linear_regression_model.pkl'
+# pickle_fileName = 'students_linear_regression_model.pkl'
+
 file_path =folder_name+pickle_fileName
 print("File path = ",file_path)
 
-model = pickle.load(open(file_path,'rb'))
+# model = pickle.load(open(file_path,'rb'))
+
+model= joblib.load(file_path)
 hours = 11
 study_hours_input = np.array([[hours]])
 prediction = model.predict(study_hours_input)
