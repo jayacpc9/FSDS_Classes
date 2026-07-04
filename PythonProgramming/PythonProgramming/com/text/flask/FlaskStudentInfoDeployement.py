@@ -6,10 +6,11 @@ from flask import Flask, request, render_template
 import joblib
 
 app = Flask(__name__)
+folder_path='/Users/chandra/Desktop/FSDS_GenAI_Training/FSDS_Classes/Python_Workspace/ML/Students_Info_Regression_Model/'
+file_name = 'students_linear_regression_model.pkl'
+file_path=folder_path+file_name
 
-file_path = 'students_linear_regression_model.pkl'
 model = joblib.load(file_path)
-
 df = pd.DataFrame()
 
 @app.route('/')
