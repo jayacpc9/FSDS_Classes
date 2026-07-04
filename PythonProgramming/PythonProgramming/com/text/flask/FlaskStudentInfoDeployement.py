@@ -40,8 +40,9 @@ def predict():
 
 
 if __name__ == "__main__":
-    host_ip='127.0.0.1'
-    host_port =8082
+    # host_ip='127.0.0.1'
+    host_ip='192.168.1.65'
+    host_port =8081
     app.run(host=host_ip, port=host_port)
 
 #if __name__ == "__main__":
