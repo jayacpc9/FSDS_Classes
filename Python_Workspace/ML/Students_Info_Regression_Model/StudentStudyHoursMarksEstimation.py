@@ -37,7 +37,7 @@ def handle_experience_change():
    
    
 
-study_hours_input = st.sidebar.number_input("Enter Study Hours :", min_value=0.0,max_value=24.0, value=1.0, step=0.5,on_change=handle_experience_change)
+study_hours_input = st.sidebar.number_input("Enter Study Hours :", min_value=1.0,max_value=24.0, value=1.0, step=0.5,on_change=handle_experience_change)
 # st.write(f" st.session_state.is_update_result  = {st.session_state.is_update_result }")
 
 if  st.session_state.is_update_result :
