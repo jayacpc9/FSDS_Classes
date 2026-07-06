@@ -8,7 +8,8 @@ def hello_world():
 
 
 if __name__ == "__main__":
-    # host_ip='127.0.0.1'
-    host_ip='192.168.1.65'
+    # host_ip='127.0.0.1' # localhost
+    # host_ip='192.168.1.65' # or provide 0.0.0.0 so that it uses both local host and ip address
+    host_ip='0.0.0.0'
     host_port =8085
-    app.run(host=host_ip, port=host_port)
+    app.run(host=host_ip, port=host_port, debug=True)
