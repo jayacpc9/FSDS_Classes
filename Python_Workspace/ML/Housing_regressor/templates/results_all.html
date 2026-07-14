@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Prediction Result of All Models</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+
+
+                <table border="1" style="border-collapse: collapse; width: 50%; text-align: left;">
+                    <thead style="background-color: #f2f2f2;">
+                        <tr>
+                            <th style="padding: 5px;">Model Name</th>
+                            <th style="padding: 5px;">Prediction Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through your list of dictionaries -->
+                        {% for item in model_name_all %}
+                        <tr>
+                            <td style="padding: 5px; font-weight: bold;">{{ item.ModelName }}</td>
+                            <td style="padding: 5px; font-weight: bold; color: #2c3e50;">
+                                <!-- If prediction is a number/string, prints normally. 
+                     If it's an array/list, Jinja renders it cleanly. -->
+                                {{ item.Prediction }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <a href="/" class="btn btn-primary">Make Another Prediction</a>
+            </div>
+        </div>
+
+        <div class="container">
+
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="/results" class="btn btn-secondary">View Model Evaluation Results</a>
+        </div>
+    </div>
+</body>
+
+</html>
