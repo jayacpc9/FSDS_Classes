@@ -32,12 +32,10 @@ y = dataset.iloc[:, -1].values #get purchase status
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train,y_test = train_test_split(X,y, test_size=0.2,random_state=0)
 
-'''
-from sklearn.tree import DecisionTreeClassifier
+
+'''from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion='entropy', splitter='random',max_depth=5, random_state=0)
-
 '''
-
 from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(max_depth=4, n_estimators=30, criterion='entropy', random_state=0)
 
