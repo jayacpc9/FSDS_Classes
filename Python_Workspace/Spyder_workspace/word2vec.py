@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Aug  3 23:01:10 2026
+Created on Tue Aug  4 22:52:08 2026
 
 @author: chandra
 """
+
+
 import nltk
 
-paragraph =  """I have three visions for India. In 3000 years of our history, people from all over
+from gensim.models import Word2Vec
+from nltk.corpus import stopwords
+
+import re
+
+paragraph = """I have three visions for India. In 3000 years of our history, people from all over
                the world have come and invaded us, captured our lands, conquered our minds.
                From Alexander onwards, the Greeks, the Turks, the Moguls, the Portuguese, the British,
                the French, the Dutch, all of them came and looted us, took over what was ours.
@@ -32,58 +39,46 @@ paragraph =  """I have three visions for India. In 3000 years of our history, pe
                I see four milestones in my career"""
 
 
-# cleaning the texts
-import re # re library will be used for regular expression
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
-from nltk.stem import WordNetLemmatizer
 
-ps = PorterStemmer()
-wordnet = WordNetLemmatizer()
-sentences = nltk.sent_tokenize(paragraph)
+# text Preprocessing the data
+text = re.sub(r'\[[0-9]*\]',' ',paragraph)
+text = re.sub(r'\s+',' ',text)
+text = text.lower()
+text = re.sub(r'\d',' ',text)
+text = re.sub(r'\s+',' ',text)
 
-print("len(sentences) = ",len(sentences))
-corpus=[] # empty list
+# Preparing the dataset
+sentences = nltk.sent_tokenize(text)
+
+sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
 
 for i in range(len(sentences)):
-    review = re.sub('[^a-zA-Z]',' ',sentences[i])
-    review = review.lower()
-    review = review.split()
-    #review = [ps.stem(word) for word in review if not word in set(stopwords.words('english')]
-    review = [wordnet.lemmatize(word) for word in review if not word in set(stopwords.words('english'))]
-    review = ' '.join(review)
-    corpus.append(review)
-    
+    sentences[i] = [word for word in sentences[i] if word not in stopwords.words('english')]
+   
+   
+# Training the Word2Vec model
+model = Word2Vec(sentences, min_count=1)
+#if the word is present < then 1 then use to skip the  conunt and as my data is very small
+#word2vec is applied for huge amount of data
 
-#create a bag of words model
-
-# Also we call it as document matrix
-from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer()
-X_bow = cv.fit_transform(corpus).toarray() 
-
-  
-from sklearn.feature_extraction.text import TfidfVectorizer
-tfidf =TfidfVectorizer()
-X_tfidf = tfidf.fit_transform(corpus).toarray()
+words = model.wv.vocab
+# in this paragrapb if we want to find the vocalbulary & create a object called words
+# if you select then each & every word there may be vectors and dimensions associated to it
+#
 
 
+# Finding Word Vectors
+vector = model.wv['war']
+#if i want to find the vector of war word and if i want to find the relationship
 
+# Most similar words
+similar = model.wv.most_similar('war')
+#if i try to find most similar word related to the war
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+similar = model.wv.most_similar('freedom')
+
+similar = model.wv.most_similar('vikram')
+
+similar = model.wv.most_similar('son')
+
+#STILL MORE RESEARCH GOING ON REGARDS TO THE WORD2VEC
