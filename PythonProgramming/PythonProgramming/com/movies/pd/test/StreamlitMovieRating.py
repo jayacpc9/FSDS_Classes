@@ -4,6 +4,12 @@ from pandas.core.indexes.api import default_index
 import MovieRatings as movie_ratings
 import ColumnNames as col_names
 
+# Read Me
+# This is the main class for this streamlit 
+# streamlit run StreamlitMovieRating.py
+# 
+#
+
 if "active_button" not in st.session_state:
     st.session_state.active_button = None
 

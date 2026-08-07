@@ -4,6 +4,12 @@ import Constants as cst
 import StudentRegistration as std_reg
 from student import Student
 
+# Read Me
+# This is the main class of the tkinter student registration
+# run it in the terminal as python <file name.py>
+# make sure Mysql db server is started and MySql WorkSpace is also turned on and connected
+# 
+
 def on_click_add_student():
     new_student = Student(e2.get(),e3.get(),e4.get())
     std_reg.add_student(new_student,show_success_message)
